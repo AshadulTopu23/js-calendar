@@ -9,10 +9,50 @@
 </head>
 
 <body>
-    <input type="text" class="dateInput" readonly placeholder="Select a date">
-    <input type="text" class="dateInput" readonly placeholder="Select a date">
-    <input type="text" class="dateInput" readonly placeholder="Select a date">
+    <form action="#" id="form">
+        <input type="text" class="dateInput" name="dateInput1" readonly placeholder="Select a date">
+        <input type="text" class="dateInput" name="dateInput2" readonly placeholder="Select a date">
+        <input type="text" class="dateInput" name="dateInput3" readonly placeholder="Select a date">
+
+        <!-- get value -->
+        <button type="submit" id="getValueBtn">Get Value</button>
+    </form>
+    <p id="output"></p>
+
     <script src="class-selector.js"></script>
+
+    <script>
+        // Event listener to get value from input
+        // document.getElementById('getValueBtn').addEventListener('click', () => {
+        //     const dateInputs = document.querySelectorAll('.dateInput');
+        //     const output = document.getElementById('output');
+
+        //     dateInputs.forEach((input, index) => {
+        //         console.log(`Value of input ${index + 1}: ${input.value}`);
+        //         output.textContent = `Value of input ${index + 1}: ${input.value}`;
+        //     });
+
+        // Example to display the value of the first input in the output paragraph
+        // const output = document.getElementById('output');
+        // output.textContent = `Value of the first input: ${dateInputs[0].value}`;
+        // });
+        const form = document.getElementById('form');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            // const dateInputs = document.querySelectorAll('.dateInput');
+            // const output = document.getElementById('output');
+            // dateInputs.forEach((input, index) => {
+            //     console.log(`Value of input ${index + 1}: ${input.value}`);
+            //     output.textContent = `Value of input ${index + 1}: ${input.value}`;
+            // });
+
+            // console.log(`Value of input: ${event.target[0].value}`);
+
+            const formData = new FormData(form);
+            const output = document.getElementById('output');
+            output.textContent = `Value of input: ${formData.get('dateInput1')}`;
+        });
+    </script>
 </body>
 
 </html>
