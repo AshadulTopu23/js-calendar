@@ -1,7 +1,8 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const dateInputs = document.querySelectorAll('.dateInput');
-
-    dateInputs.forEach((dateInput, index) => {
+    // console.log(dateInput);
+    dateInputs.forEach((dateInput) => {
         // Create input container
         const inputContainer = document.createElement('div');
         inputContainer.classList.add('input-container');
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create calendar container
         const calendarContainer = document.createElement('div');
         calendarContainer.classList.add('calendar-container');
-        calendarContainer.id = `calendarContainer-${index}`;
+        calendarContainer.id = 'calendarContainer';
         inputContainer.appendChild(calendarContainer);
 
         // Create calendar header
@@ -20,16 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
         calendarContainer.appendChild(calendarHeader);
 
         const prevMonth = document.createElement('button');
-        prevMonth.id = `prevMonth-${index}`;
+        prevMonth.id = 'prevMonth';
         prevMonth.innerHTML = '&lt;';
         calendarHeader.appendChild(prevMonth);
 
         const monthYear = document.createElement('div');
-        monthYear.id = `monthYear-${index}`;
+        monthYear.id = 'monthYear';
         calendarHeader.appendChild(monthYear);
 
         const nextMonth = document.createElement('button');
-        nextMonth.id = `nextMonth-${index}`;
+        nextMonth.id = 'nextMonth';
         nextMonth.innerHTML = '&gt;';
         calendarHeader.appendChild(nextMonth);
 
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create calendar dates
         const calendarDates = document.createElement('div');
         calendarDates.classList.add('calendar-dates');
-        calendarDates.id = `calendarDates-${index}`;
+        calendarDates.id = 'calendarDates';
         calendarBody.appendChild(calendarDates);
 
         let currentMonth = new Date().getMonth();
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dateDiv = document.createElement('div');
                 dateDiv.textContent = date;
                 dateDiv.addEventListener('click', () => {
-                    document.querySelectorAll(`#calendarDates-${index} div`).forEach(d => d.classList.remove('selected'));
+                    document.querySelectorAll('.calendar-dates div').forEach(d => d.classList.remove('selected'));
                     dateDiv.classList.add('selected');
                     dateInput.value = `${date} ${months[month]} ${year}`;
                     calendarContainer.style.display = 'none';
@@ -110,12 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
             calendarContainer.style.display = 'block';
         });
 
-        document.addEventListener('click', (event) => {
-            if (!calendarContainer.contains(event.target) && event.target !== dateInput) {
-                calendarContainer.style.display = 'none';
-            }
-        });
+        // document.addEventListener('click', (event) => {
+        //     if (!calendarContainer.contains(event.target) && event.target !== dateInput) {
+        //         calendarContainer.style.display = 'none';
+        //     }
+        // });
 
         renderCalendar(currentMonth, currentYear);
-    });
+    })
 });
