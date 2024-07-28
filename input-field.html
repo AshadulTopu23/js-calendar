@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Input</title>
+    <link rel="stylesheet" href="input-field.css">
+</head>
+
+<body>
+    <div class="input-container">
+        <input type="text" id="dateInput" readonly placeholder="Select a date">
+        <div class="calendar-container" id="calendarContainer">
+            <div class="calendar-header">
+                <button id="prevMonth">&lt;</button>
+                <div id="monthYear"></div>
+                <button id="nextMonth">&gt;</button>
+            </div>
+            <div class="calendar-body">
+                <div class="calendar-weekdays">
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                    <div>Sun</div>
+                </div>
+                <div class="calendar-dates" id="calendarDates"></div>
+            </div>
+        </div>
+    </div>
+    <script src="input-field.js"></script>
+</body>
+
+</html>
