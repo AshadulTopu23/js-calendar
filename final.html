@@ -9,11 +9,45 @@
 </head>
 
 <body>
-    <input type="text" class="date-input dateInput" readonly placeholder="Select a date">
-    <input type="text" class="date-input dateInput" readonly placeholder="Select a date">
-    <!-- <input type="text" class="date-input dateInput" readonly placeholder="Select a date"> -->
-    <input type="text" class="date-input dateInput2" readonly placeholder="Select a date">
-    <script src="final.js"></script>
+    <!-- <input type="text" class="topu-date-input dateInput" readonly placeholder="Select a date"> -->
+    <input type="text" class="topu-date-input dateInput" readonly placeholder="Select a date">
+    <!-- <input type="text" class="topu-date-input dateInput" readonly placeholder="Select a date"> -->
+    <input type="text" class="topu-date-input dateInput2" readonly placeholder="Select a date">
+    <!-- <script src="final.js"></script> -->
+    <script type="module">
+        import topuDatePicker from './final.js';
+
+        // Initialize date picker with custom options
+        topuDatePicker({
+            inputSelector: '.dateInput',
+            // prevIcon: '<<',
+            // nextIcon: '>>',
+            classes: {
+                calendarContainerClass: '',
+                calendarHeaderClass: '',
+                calendarBodyClass: '',
+                calendarWeekdaysClass: '',
+                calendarDatesClass: ''
+            },
+            controlPosition: true,
+            closeOnOutsideClick: true
+        });
+
+        topuDatePicker({
+            inputSelector: '.dateInput2',
+            prevIcon: '<<',
+            nextIcon: '>>',
+            classes: {
+                calendarContainerClass: 'custom-container',
+                calendarHeaderClass: 'custom-header',
+                calendarBodyClass: 'custom-body',
+                calendarWeekdaysClass: 'custom-weekdays',
+                calendarDatesClass: 'custom-dates'
+            },
+            controlPosition: false,
+            closeOnOutsideClick: false
+        });
+    </script>
 </body>
 
 </html>
