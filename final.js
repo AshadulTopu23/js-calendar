@@ -349,6 +349,7 @@ function topuDatePicker(options = {}) {
         prevIcon = '&lt;',
         nextIcon = '&gt;',
         classes: {
+            inputContainerClass = '',
             calendarContainerClass = '',
             calendarHeaderClass = '',
             calendarBodyClass = '',
@@ -364,9 +365,11 @@ function topuDatePicker(options = {}) {
     dateInputs.forEach((dateInput) => {
         // Create input container
         const inputContainer = document.createElement('div');
-        inputContainer.classList.add('topu-input-container');
+        if (inputContainerClass) inputContainer.classList.add('topu-input-container', inputContainerClass);
+        else inputContainer.classList.add('topu-input-container');
         dateInput.parentNode.insertBefore(inputContainer, dateInput);
         inputContainer.appendChild(dateInput);
+
 
         // Create calendar container
         const calendarContainerEl = document.createElement('div');
